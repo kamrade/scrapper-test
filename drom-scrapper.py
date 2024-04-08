@@ -7,10 +7,8 @@ from dromenv import GENERATIONS_BY_COUNTRY_BLOCK, GENERATION_COUNTRY_TITLE
 
 
 # >>> Select a brand
-print(":: Autocatalogue start ::")
-baseUrl = "https://www.drom.ru/catalog/"
 brand = input('Enter brand: ')
-brand_url = baseUrl + brand.lower()
+brand_url = "https://www.drom.ru/catalog/" + brand.lower()
 brand_response = get(brand_url)
 brand_soup: bs4.element.ResultSet = BeautifulSoup(brand_response.text, 'html.parser')
 models_soup: bs4.element.ResultSet = brand_soup.find_all('div', attrs={'data-ftid': 'component_cars-list'})
